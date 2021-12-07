@@ -18,14 +18,11 @@
 }
 
 body {
-	background-image: linear-gradient(black, white);
-}
-
-header {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	background-image: linear-gradient(black, white);
 }
 
 h1 {
@@ -37,12 +34,14 @@ h1 {
 	animation-duration: 4s;
 	animation-iteration-count: infinite;
 	margin-left: 10%;
+	margin-top: 0%;
 }
 
 h2 {
 	font-size: 200%;
 	font-family: "Righteous", cursive;
 	text-shadow: 2px 2px whitesmoke;
+	margin-top: -5%;
 }
 
 .button-container {
@@ -51,10 +50,27 @@ h2 {
 	justify-content: space-between;
 }
 
-.play-container {
+.game-board {
 	display: flex;
-	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 4rem;
+}
+
+.color-buttons {
+	padding: 20%;
+	background-size: contain;
+	background-position: center;
+	border: 2px solid black;
+}
+
+.play-button-container {
+	position: absolute;
+	/* display: flex;
+	flex-direction: row;
+	justify-content: center; */
 }
 
 .how-to-modal,
@@ -88,6 +104,23 @@ h2 {
 	text-align: right;
 }
 
+#red-button {
+	background-color: rgba(254, 25, 25, 0.7);
+	border-top-left-radius: 60%;
+}
+#green-button {
+	background-color: rgba(0, 191, 14, 0.7);
+	border-top-right-radius: 60%;
+}
+#yellow-button {
+	background-color: rgba(255, 250, 47, 0.7);
+	border-bottom-left-radius: 60%;
+}
+#blue-button {
+	background-color: rgba(0, 152, 255, 0.7);
+	border-bottom-right-radius: 60%;
+}
+
 .how-to-button {
 	padding: 14px 18px;
 	background-image: linear-gradient(blue, yellow);
@@ -112,12 +145,14 @@ h2 {
 }
 
 .play-button {
-	padding: 54px 58px;
+	padding: 74px 74px;
 	border: none;
 	outline: none;
 	border-radius: 50%;
 	font-family: "Righteous", cursive;
 	font-size: 200%;
+	background-color: black;
+	color: ivory;
 }
 
 .how-to-button:hover {
@@ -129,5 +164,25 @@ h2 {
 }
 
 .play-button:hover {
-	background-color: palevioletred;
+	color: black;
+	background-color: white;
+}
+
+/* Adding glow effect to buttons to 'light up' */
+/* https://superdevresources.com/css-button-glow-effect// */
+#red-button:hover {
+	background-color: rgba(254, 50, 25, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);
+}
+#green-button:hover {
+	background-color: rgba(0, 230, 14, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(0, 191, 14, 0.8);
+}
+#yellow-button:hover {
+	background-color: rgba(255, 250, 0, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(255, 250, 47, 0.8);
+}
+#blue-button:hover {
+	background-color: rgba(0, 200, 255, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
 }

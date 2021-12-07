@@ -24,8 +24,12 @@ body {
 	text-align: center;
 	background-image: linear-gradient(black, white);
 }
-
+header {
+	display: flex;
+	flex-direction: column;
+}
 h1 {
+	display: flex;
 	font-family: "Righteous", cursive;
 	letter-spacing: 4rem;
 	font-size: 700%;
@@ -121,6 +125,9 @@ h2 {
 	border-bottom-right-radius: 60%;
 }
 
+.difficulty-button,
+.high-score-button,
+.modal-buttons,
 .how-to-button {
 	padding: 14px 18px;
 	background-image: linear-gradient(blue, yellow);
@@ -132,19 +139,8 @@ h2 {
 	font-weight: 900;
 	cursor: pointer;
 }
-.modal-buttons {
-	padding: 14px 18px;
-	background-image: linear-gradient(red, green);
-	border: none;
-	outline: none;
-	border-radius: 3px;
-	color: ivory;
-	font-family: "Righteous", cursive;
-	font-weight: 900;
-	cursor: pointer;
-}
 
-.play-button {
+#play-button {
 	padding: 74px 74px;
 	border: none;
 	outline: none;
@@ -154,16 +150,14 @@ h2 {
 	background-color: black;
 	color: ivory;
 }
-
+.difficulty-button:hover,
+.high-score-button:hover,
+.modal-buttons:hover,
 .how-to-button:hover {
 	background-image: linear-gradient(red, green);
 }
 
-.modal-buttons:hover {
-	background-image: linear-gradient(blue, yellow);
-}
-
-.play-button:hover {
+#play-button:hover {
 	color: black;
 	background-color: white;
 }

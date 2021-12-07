@@ -6,10 +6,10 @@
 	0% {
 		color: red;
 	}
-	25% {
+	35% {
 		color: yellow;
 	}
-	50% {
+	65% {
 		color: green;
 	}
 	100% {
@@ -22,6 +22,9 @@ body {
 }
 
 header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	text-align: center;
 }
 
@@ -33,9 +36,11 @@ h1 {
 	animation-name: text-animation;
 	animation-duration: 4s;
 	animation-iteration-count: infinite;
+	margin-left: 10%;
 }
 
 h2 {
+	font-size: 200%;
 	font-family: "Righteous", cursive;
 	text-shadow: 2px 2px whitesmoke;
 }
@@ -44,6 +49,12 @@ h2 {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+
+.play-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .how-to-modal,
@@ -100,10 +111,23 @@ h2 {
 	cursor: pointer;
 }
 
+.play-button {
+	padding: 54px 58px;
+	border: none;
+	outline: none;
+	border-radius: 50%;
+	font-family: "Righteous", cursive;
+	font-size: 200%;
+}
+
 .how-to-button:hover {
 	background-image: linear-gradient(red, green);
 }
 
 .modal-buttons:hover {
 	background-image: linear-gradient(blue, yellow);
+}
+
+.play-button:hover {
+	background-color: palevioletred;
 }

@@ -44,39 +44,12 @@ h1 {
 h2 {
 	font-size: 200%;
 	font-family: "Righteous", cursive;
-	text-shadow: 2px 2px whitesmoke;
+	text-shadow: 3px 3px whitesmoke;
 	margin-top: -5%;
+	color: rgba(45, 255, 255, 100%);
 }
 
-.button-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.game-board {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	margin-top: 4rem;
-}
-
-.color-buttons {
-	padding: 20%;
-	background-size: contain;
-	background-position: center;
-	border: 2px solid black;
-}
-
-.play-button-container {
-	position: absolute;
-	/* display: flex;
-	flex-direction: row;
-	justify-content: center; */
-}
-
+/* MODAL STYLING */
 .how-to-modal,
 .modal {
 	background-color: rgba(0, 0, 0, 0.4);
@@ -108,6 +81,57 @@ h2 {
 	text-align: right;
 }
 
+.difficulty-button,
+.high-score-button,
+.modal-buttons,
+.how-to-button {
+	padding: 14px 18px;
+	background-image: linear-gradient(blue, yellow);
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: ivory;
+	font-family: "Righteous", cursive;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.difficulty-button:hover,
+.high-score-button:hover,
+.modal-buttons:hover,
+.how-to-button:hover {
+	background-image: linear-gradient(red, green);
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/* GAME BOARD STYLING */
+
+.game-board {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 4rem;
+	margin-left: 1rem;
+}
+
+.color-buttons {
+	padding: 20%;
+	background-size: contain;
+	background-position: center;
+	border: 2px solid black;
+}
+
+.play-button-container {
+	position: absolute;
+}
+
 #red-button {
 	background-color: rgba(254, 25, 25, 0.7);
 	border-top-left-radius: 60%;
@@ -125,21 +149,6 @@ h2 {
 	border-bottom-right-radius: 60%;
 }
 
-.difficulty-button,
-.high-score-button,
-.modal-buttons,
-.how-to-button {
-	padding: 14px 18px;
-	background-image: linear-gradient(blue, yellow);
-	border: none;
-	outline: none;
-	border-radius: 3px;
-	color: ivory;
-	font-family: "Righteous", cursive;
-	font-weight: 900;
-	cursor: pointer;
-}
-
 #play-button {
 	padding: 35%;
 	border: none;
@@ -150,12 +159,6 @@ h2 {
 	background-color: black;
 	color: ivory;
 }
-.difficulty-button:hover,
-.high-score-button:hover,
-.modal-buttons:hover,
-.how-to-button:hover {
-	background-image: linear-gradient(red, green);
-}
 
 #play-button:hover {
 	color: black;
@@ -164,6 +167,23 @@ h2 {
 
 /* Adding glow effect to buttons to 'light up' */
 /* https://superdevresources.com/css-button-glow-effect// */
+.red-button-glow {
+	background-color: rgba(254, 60, 0, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);
+}
+.green-button-glow {
+	background-color: rgba(0, 230, 14, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(0, 191, 14, 0.8);
+}
+.yellow-button-glow {
+	background-color: rgba(255, 255, 90, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(255, 250, 90, 0.8);
+}
+.blue-button-glow {
+	background-color: rgba(0, 200, 255, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
+}
+
 #red-button:hover {
 	background-color: rgba(254, 60, 0, 1.5);
 	box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);

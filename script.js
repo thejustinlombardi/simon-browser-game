@@ -40,6 +40,7 @@ closeHowToBtn.addEventListener("click", closeHowToModal);
 /*----- app's state (variables) -----*/
 let simonArr = [];
 let playerArr = [];
+let round;
 /*----- cached element references -----*/
 const gameBoard = document.querySelector(".game-board");
 
@@ -75,8 +76,11 @@ function handleClick(event) {
 
 function gamePlay() {}
 
-function playSimonColors() {
-	set;
+function playSimonColors(simonArr, round) {
+	for (let i = 1; i <= round; i++) {
+		if (simonArr[i] === "R") {
+		}
+	}
 }
 
 function getPlayerColors(event) {

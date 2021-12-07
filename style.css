@@ -141,7 +141,7 @@ h2 {
 }
 
 #play-button {
-	padding: 74px 74px;
+	padding: 35%;
 	border: none;
 	outline: none;
 	border-radius: 50%;
@@ -165,7 +165,7 @@ h2 {
 /* Adding glow effect to buttons to 'light up' */
 /* https://superdevresources.com/css-button-glow-effect// */
 #red-button:hover {
-	background-color: rgba(254, 50, 25, 1.5);
+	background-color: rgba(254, 60, 0, 1.5);
 	box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);
 }
 #green-button:hover {
@@ -173,8 +173,8 @@ h2 {
 	box-shadow: 0px 10px 30px 0px rgba(0, 191, 14, 0.8);
 }
 #yellow-button:hover {
-	background-color: rgba(255, 250, 0, 1.5);
-	box-shadow: 0px 10px 30px 0px rgba(255, 250, 47, 0.8);
+	background-color: rgba(255, 255, 90, 1.5);
+	box-shadow: 0px 10px 30px 0px rgba(255, 250, 90, 0.8);
 }
 #blue-button:hover {
 	background-color: rgba(0, 200, 255, 1.5);

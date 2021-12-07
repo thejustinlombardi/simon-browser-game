@@ -1,4 +1,11 @@
-//-------- Modal functions ------------
+/*----- constants -----*/
+/*----- app's state (variables) -----*/
+/*----- cached element references -----*/
+/*----- event listeners -----*/
+/*----- functions -----*/
+//-------- Modals Code ------------//
+
+/*----- cached element references -----*/
 const openBtn = document.querySelector("#openModal");
 const modal = document.querySelector(".modal");
 const close = document.querySelector("#close");
@@ -6,6 +13,7 @@ const howToBtn = document.querySelector(".how-to-button");
 const howToModal = document.querySelector(".how-to-modal");
 const closeHowToBtn = document.querySelector("#how-to-close");
 
+/*----- functions -----*/
 const openModal = () => {
 	modal.style.display = "block";
 };
@@ -19,27 +27,28 @@ const closeHowToModal = () => {
 	howToModal.style.display = "none";
 };
 
+/*----- event listeners -----*/
 howToBtn.addEventListener("click", openHowToModal);
 openBtn.addEventListener("click", openModal);
 close.addEventListener("click", closeModal);
 closeHowToBtn.addEventListener("click", closeHowToModal);
+//-------- End Modals Code ------------//
 
-// ----------Game Play--------- //
+// ----------Game Play Code--------- //
 // ----------Constants--------- //
 
+/*----- app's state (variables) -----*/
+let simonArr = [];
+let playerArr = [];
+/*----- cached element references -----*/
 const gameBoard = document.querySelector(".game-board");
-const simonArr = [];
-const playerArr = [];
 
-function getRandomNumber(min, max) {
-	return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
+/*----- event listeners -----*/
 gameBoard.addEventListener("click", handleClick);
 
-function handleClick(event) {
-	let greeting = `hello from ${event.target.id}!`;
-	console.log(greeting);
+/*----- functions -----*/
+function getRandomNumber(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function setSimonColor(num) {
@@ -53,5 +62,33 @@ function setSimonColor(num) {
 		simonArr.push("B");
 	}
 }
-setSimonColor(getRandomNumber(1, 4));
-console.log(simonArr);
+
+function init() {
+	for (let i = 0; i < 50; i++) {
+		setSimonColor(getRandomNumber(1, 4));
+	}
+}
+function handleClick(event) {
+	getPlayerColors(event);
+	console.log(playerArr);
+}
+
+function gamePlay() {}
+
+function playSimonColors() {
+	set;
+}
+
+function getPlayerColors(event) {
+	if (event.target.id === "red-button") {
+		playerArr.push("R");
+	} else if (event.target.id === "green-button") {
+		playerArr.push("G");
+	} else if (event.target.id === "yellow-button") {
+		playerArr.push("Y");
+	} else if (event.target.id === "blue-button") {
+		playerArr.push("B");
+	}
+}
+
+init();

@@ -1,0 +1,7 @@
+-Set up the title, menu buttons, and tagline 
+-Set up the game board 
+-set up the round # and time area
+-give Simon random array (85?) in init function
+-Create functional for reading simon's array and toggling the glow class for whatever round we're on
+Have gameStart function happen when 'Play' button is clicked
+-create functionality of adding color to array when the colored button is clicked

@@ -38,7 +38,7 @@ closeHowToBtn.addEventListener("click", closeHowToModal);
 // ----------Constants--------- //
 
 /*----- app's state (variables) -----*/
-let simonArr = ["R", "R", "G", "Y", "B"];
+let simonArr = [];
 let playerArr = [];
 let round = 4;
 /*----- cached element references -----*/
@@ -52,41 +52,39 @@ const blueDiv = document.querySelector(".blue-button");
 gameBoard.addEventListener("click", handleClick);
 
 /*----- functions -----*/
-function getRandomNumber(min, max) {
-	return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
-function setSimonColor(num) {
-	if (num === 1) {
-		simonArr.push("R");
-	} else if (num === 2) {
-		simonArr.push("G");
-	} else if (num === 3) {
-		simonArr.push("Y");
-	} else if (num === 4) {
-		simonArr.push("B");
-	}
-}
+function init(event) {}
 
-function init(event) {
-	for (let i = 0; i < 50; i++) {
-		setSimonColor(getRandomNumber(1, 4));
-	}
-}
 function handleClick(event) {
-	init(event);
 	getPlayerColors(event);
+	setSimonColor(getRandomNumber(1, 4));
 	console.log(playerArr);
+	console.log(simonArr);
+	gamePlay(simonArr);
 }
 
 function gamePlay(simonArr) {
 	round = 4;
-	for (let i = 1; i <= round; i++) {
-		playSimonColors(simonArr, i);
+
+	setTimeout(() => {
+		for (let i = 1; i <= round; i++) {
+			playSimonColors(simonArr, i);
+		}
+	}, 1000);
+}
+
+function getPlayerColors(event) {
+	if (event.target.id === "red-button") {
+		playerArr.push("R");
+	} else if (event.target.id === "green-button") {
+		playerArr.push("G");
+	} else if (event.target.id === "yellow-button") {
+		playerArr.push("Y");
+	} else if (event.target.id === "blue-button") {
+		playerArr.push("B");
 	}
 }
 
-gamePlay(simonArr);
 function playSimonColors(simonArr, i) {
 	if (simonArr[i] === "R") {
 		if (redDiv.classList.contains("red-button")) {
@@ -119,14 +117,18 @@ function playSimonColors(simonArr, i) {
 	}
 }
 
-function getPlayerColors(event) {
-	if (event.target.id === "red-button") {
-		playerArr.push("R");
-	} else if (event.target.id === "green-button") {
-		playerArr.push("G");
-	} else if (event.target.id === "yellow-button") {
-		playerArr.push("Y");
-	} else if (event.target.id === "blue-button") {
-		playerArr.push("B");
+function setSimonColor(num) {
+	if (num === 1) {
+		simonArr.push("R");
+	} else if (num === 2) {
+		simonArr.push("G");
+	} else if (num === 3) {
+		simonArr.push("Y");
+	} else if (num === 4) {
+		simonArr.push("B");
 	}
+}
+
+function getRandomNumber(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }

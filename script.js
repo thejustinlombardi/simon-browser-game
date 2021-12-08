@@ -51,6 +51,7 @@ const blueDiv = document.querySelector(".blue-button");
 const playBtn = document.querySelector("#play-button");
 const resetBtn = document.querySelector(".reset-btn");
 let playerH3 = document.querySelector(".player-turn");
+let roundNum = document.querySelector(".round-num");
 
 /*----- event listeners -----*/
 gameBoard.addEventListener("click", handleClick);
@@ -62,6 +63,7 @@ function init(event) {
 	simonArr = [];
 	playerArr = [];
 	round = 0;
+	roundNum.innerText = `Round: ${round}`;
 	winStatus = true;
 	for (let i = 0; i < 50; i++) {
 		setSimonColor(getRandomNumber(1, 4));
@@ -70,13 +72,23 @@ function init(event) {
 	console.log(playerArr);
 }
 
-function handleClick(event) {
-	gamePlay(simonArr);
+function handleClick(event) {}
+
+function gamePlay(event) {
+	simonArr = [];
+	playerArr = [];
+	round = 0;
+	roundNum.innerText = `Round: ${round}`;
+	winStatus = true;
+	for (let i = 0; i < 50; i++) {
+		setSimonColor(getRandomNumber(1, 4));
+	}
+
+	simonMove(event, simonArr, round);
+	getPlayerColors();
 }
 
-function gamePlay(simonArr) {}
-
-function getPlayerColors(event) {
+function getPlayerColors(event, round) {
 	while (playerArr.length != round) {
 		playerH3.innerText = "Player Says...";
 		if (event.target.id === "red-button") {
@@ -89,9 +101,10 @@ function getPlayerColors(event) {
 			playerArr.push("B");
 		}
 	}
+	round++;
 }
 
-function simonMove(event) {
+function simonMove(event, simonArr, round) {
 	playerH3.innerText = "Simon Says...";
 	for (let i = 0; i < round; i++) {
 		setTimeout(() => {

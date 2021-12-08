@@ -38,50 +38,65 @@ closeHowToBtn.addEventListener("click", closeHowToModal);
 // ----------Constants--------- //
 
 /*----- app's state (variables) -----*/
-let simonArr = [];
-let playerArr = [];
-let round = 4;
+let simonArr;
+let playerArr;
+let round;
+let winStatus;
 /*----- cached element references -----*/
 const gameBoard = document.querySelector(".game-board");
 const redDiv = document.querySelector(".red-button");
 const greenDiv = document.querySelector(".green-button");
 const yellowDiv = document.querySelector(".yellow-button");
 const blueDiv = document.querySelector(".blue-button");
+const playBtn = document.querySelector("#play-button");
+const resetBtn = document.querySelector(".reset-btn");
+let playerH3 = document.querySelector(".player-turn");
 
 /*----- event listeners -----*/
 gameBoard.addEventListener("click", handleClick);
+resetBtn.addEventListener("click", init);
+playBtn.addEventListener("click", gamePlay);
 
 /*----- functions -----*/
-
-function init(event) {}
+function init(event) {
+	simonArr = [];
+	playerArr = [];
+	round = 0;
+	winStatus = true;
+	for (let i = 0; i < 50; i++) {
+		setSimonColor(getRandomNumber(1, 4));
+	}
+	console.log(simonArr);
+	console.log(playerArr);
+}
 
 function handleClick(event) {
-	getPlayerColors(event);
-	setSimonColor(getRandomNumber(1, 4));
-	console.log(playerArr);
-	console.log(simonArr);
 	gamePlay(simonArr);
 }
 
-function gamePlay(simonArr) {
-	round = 4;
-
-	setTimeout(() => {
-		for (let i = 1; i <= round; i++) {
-			playSimonColors(simonArr, i);
-		}
-	}, 1000);
-}
+function gamePlay(simonArr) {}
 
 function getPlayerColors(event) {
-	if (event.target.id === "red-button") {
-		playerArr.push("R");
-	} else if (event.target.id === "green-button") {
-		playerArr.push("G");
-	} else if (event.target.id === "yellow-button") {
-		playerArr.push("Y");
-	} else if (event.target.id === "blue-button") {
-		playerArr.push("B");
+	while (playerArr.length != round) {
+		playerH3.innerText = "Player Says...";
+		if (event.target.id === "red-button") {
+			playerArr.push("R");
+		} else if (event.target.id === "green-button") {
+			playerArr.push("G");
+		} else if (event.target.id === "yellow-button") {
+			playerArr.push("Y");
+		} else if (event.target.id === "blue-button") {
+			playerArr.push("B");
+		}
+	}
+}
+
+function simonMove(event) {
+	playerH3.innerText = "Simon Says...";
+	for (let i = 0; i < round; i++) {
+		setTimeout(() => {
+			playSimonColors(simonArr, i);
+		}, 1250 * i);
 	}
 }
 

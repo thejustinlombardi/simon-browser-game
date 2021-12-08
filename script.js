@@ -38,11 +38,15 @@ closeHowToBtn.addEventListener("click", closeHowToModal);
 // ----------Constants--------- //
 
 /*----- app's state (variables) -----*/
-let simonArr;
-let playerArr;
-let round;
+let simonArr = ["R", "R", "G", "Y", "B"];
+let playerArr = [];
+let round = 4;
 /*----- cached element references -----*/
 const gameBoard = document.querySelector(".game-board");
+const redDiv = document.querySelector(".red-button");
+const greenDiv = document.querySelector(".green-button");
+const yellowDiv = document.querySelector(".yellow-button");
+const blueDiv = document.querySelector(".blue-button");
 
 /*----- event listeners -----*/
 gameBoard.addEventListener("click", handleClick);
@@ -64,21 +68,53 @@ function setSimonColor(num) {
 	}
 }
 
-function init() {
+function init(event) {
 	for (let i = 0; i < 50; i++) {
 		setSimonColor(getRandomNumber(1, 4));
 	}
 }
 function handleClick(event) {
+	init(event);
 	getPlayerColors(event);
 	console.log(playerArr);
 }
 
-function gamePlay() {}
-
-function playSimonColors(simonArr, round) {
+function gamePlay(simonArr) {
+	round = 4;
 	for (let i = 1; i <= round; i++) {
-		if (simonArr[i] === "R") {
+		playSimonColors(simonArr, i);
+	}
+}
+
+gamePlay(simonArr);
+function playSimonColors(simonArr, i) {
+	if (simonArr[i] === "R") {
+		if (redDiv.classList.contains("red-button")) {
+			redDiv.classList.add("red-button-glow");
+			setTimeout(() => {
+				redDiv.classList.remove("red-button-glow");
+			}, 1000);
+		}
+	} else if (simonArr[i] === "G") {
+		if (greenDiv.classList.contains("green-button")) {
+			greenDiv.classList.add("green-button-glow");
+			setTimeout(() => {
+				greenDiv.classList.remove("green-button-glow");
+			}, 1000);
+		}
+	} else if (simonArr[i] === "Y") {
+		if (yellowDiv.classList.contains("yellow-button")) {
+			yellowDiv.classList.add("yellow-button-glow");
+			setTimeout(() => {
+				yellowDiv.classList.remove("yellow-button-glow");
+			}, 1000);
+		}
+	} else if (simonArr[i] === "B") {
+		if (blueDiv.classList.contains("blue-button")) {
+			blueDiv.classList.add("blue-button-glow");
+			setTimeout(() => {
+				blueDiv.classList.remove("blue-button-glow");
+			}, 1000);
 		}
 	}
 }
@@ -94,5 +130,3 @@ function getPlayerColors(event) {
 		playerArr.push("B");
 	}
 }
-
-init();

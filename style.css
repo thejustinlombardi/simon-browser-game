@@ -29,22 +29,21 @@ header {
 	flex-direction: column;
 }
 h1 {
-	display: flex;
 	font-family: "Righteous", cursive;
 	letter-spacing: 4rem;
-	font-size: 700%;
+	font-size: 5em;
 	text-shadow: 5px 5px whitesmoke;
 	animation-name: text-animation;
 	animation-duration: 4s;
 	animation-iteration-count: infinite;
-	margin-left: 10%;
+	margin-left: 4rem;
 	margin-top: 0%;
 }
 
 h2 {
 	font-size: 200%;
 	font-family: "Righteous", cursive;
-	text-shadow: 3px 3px whitesmoke;
+	text-shadow: 2px 2px whitesmoke;
 	margin-top: -5%;
 	color: rgba(45, 255, 255, 100%);
 }
@@ -65,7 +64,7 @@ h2 {
 
 .how-to-modal-textbox,
 .modal-textbox {
-	background-color: white;
+	background-color: lightgrey;
 	height: 350px;
 	width: 550px;
 	border-radius: 2px;
@@ -109,6 +108,22 @@ h2 {
 	justify-content: space-between;
 }
 
+/* STATS STYLING */
+
+.round-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-content: center;
+	margin: auto;
+	margin-top: 3rem;
+	color: ivory;
+	font-family: "Righteous", cursive;
+}
+
+.player-turn {
+	font-size: 3em;
+}
 /* GAME BOARD STYLING */
 
 .game-board {
@@ -116,9 +131,10 @@ h2 {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	margin-top: 4rem;
-	margin-left: 1rem;
+	position: relative;
+	width: 60%;
+	margin: auto;
+	margin-top: 2rem;
 }
 
 .color-buttons {
@@ -126,10 +142,6 @@ h2 {
 	background-size: contain;
 	background-position: center;
 	border: 2px solid black;
-}
-
-.play-button-container {
-	position: absolute;
 }
 
 #red-button {
@@ -141,7 +153,7 @@ h2 {
 	border-top-right-radius: 60%;
 }
 #yellow-button {
-	background-color: rgba(255, 250, 47, 0.7);
+	background-color: rgba(255, 250, 47, 0.5);
 	border-bottom-left-radius: 60%;
 }
 #blue-button {
@@ -150,12 +162,13 @@ h2 {
 }
 
 #play-button {
-	padding: 35%;
+	position: absolute;
+	padding: 40px;
 	border: none;
 	outline: none;
 	border-radius: 50%;
 	font-family: "Righteous", cursive;
-	font-size: 200%;
+	font-size: 2rem;
 	background-color: black;
 	color: ivory;
 }
@@ -185,18 +198,18 @@ h2 {
 }
 
 #red-button:hover {
-	background-color: rgba(254, 60, 0, 1.5);
+	background-color: rgba(254, 60, 0, 1);
 	box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);
 }
 #green-button:hover {
-	background-color: rgba(0, 230, 14, 1.5);
+	background-color: rgba(0, 230, 14, 1);
 	box-shadow: 0px 10px 30px 0px rgba(0, 191, 14, 0.8);
 }
 #yellow-button:hover {
-	background-color: rgba(255, 255, 90, 1.5);
+	background-color: rgba(255, 255, 0, 1);
 	box-shadow: 0px 10px 30px 0px rgba(255, 250, 90, 0.8);
 }
 #blue-button:hover {
-	background-color: rgba(0, 200, 255, 1.5);
+	background-color: rgba(60, 255, 255, 1);
 	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
 }

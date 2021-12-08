@@ -38,8 +38,8 @@ closeHowToBtn.addEventListener("click", closeHowToModal);
 // ----------Constants--------- //
 
 /*----- app's state (variables) -----*/
-let simonArr = [];
-let playerArr = [];
+let simonArr;
+let playerArr;
 let round;
 /*----- cached element references -----*/
 const gameBoard = document.querySelector(".game-board");

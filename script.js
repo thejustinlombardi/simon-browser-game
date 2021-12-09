@@ -1,8 +1,3 @@
-/*----- constants -----*/
-/*----- app's state (variables) -----*/
-/*----- cached element references -----*/
-/*----- event listeners -----*/
-/*----- functions -----*/
 //-------- Modals Code ------------//
 
 /*----- cached element references -----*/
@@ -45,7 +40,8 @@ const PLAYERS = {
 let simonArr = [];
 let playerArr = [];
 let round = 0;
-let winStatus;
+let turn = 0;
+let highScore = 0;
 
 // for (let i = 0; i < 50; i++) {
 // 	setSimonColor(getRandomNumber(1, 4));
@@ -67,74 +63,63 @@ let roundNum = document.querySelector(".round-num");
 function init(event) {
 	simonArr = [];
 	playerArr = [];
-	currentPlayer = PLAYERS.playerOne;
 	round = 0;
 	roundNum.innerText = `Round: ${round}`;
-	winStatus = true;
-	playBtn.style.display = "block";
 	playerH3.innerText = "SIMON SAYS...";
 }
 
-function gamePlay(event, simonArr) {
+function gamePlay() {
+	turn = 0;
 	roundNum.innerText = `Round: ${round}`;
-	winStatus = true;
-	for (let i = 0; i < 50; i++) {
-		setSimonColor(getRandomNumber(1, 4));
-	}
 	playerH3.innerText = "SIMON SAYS...";
-
-	getSimonMove(simonArr, round);
+	setTimeout(() => {
+		getSimonMove();
+	}, 1000);
 }
 
-// function checkWinner() {
-// 	while (
-// 		playerArr.length !== simonArr.length &&
-// 		playerArr[round] === simonArr[round]
-// 	) {}
-// }
-
-function getPlayerMove(event, playerArr, round) {
+function getPlayerMove(event) {
+	// playerH3.innerText = "PLAYER SAYS...";
 	if (event.target.id === "red-button") {
 		redDiv.classList.add("red-button-glow");
 		setTimeout(() => {
 			redDiv.classList.remove("red-button-glow");
-		}, 1000);
+		}, 500);
 		playerArr.push("R");
 	} else if (event.target.id === "green-button") {
 		greenDiv.classList.add("green-button-glow");
 		setTimeout(() => {
 			greenDiv.classList.remove("green-button-glow");
-		}, 1000);
+		}, 500);
 		playerArr.push("G");
 	} else if (event.target.id === "yellow-button") {
 		yellowDiv.classList.add("yellow-button-glow");
 		setTimeout(() => {
 			yellowDiv.classList.remove("yellow-button-glow");
-		}, 1000);
+		}, 500);
 		playerArr.push("Y");
 	} else if (event.target.id === "blue-button") {
 		blueDiv.classList.add("blue-button-glow");
 		setTimeout(() => {
 			blueDiv.classList.remove("blue-button-glow");
-		}, 1000);
+		}, 500);
 		playerArr.push("B");
 	}
 
-	// checkWinner();
-}
-
-function getSimonMove(simonArr, round) {
-	for (let i = 0; i <= round; i++) {
-		setTimeout(() => {
-			playSimonColors(simonArr, i);
-		}, 1000 * i);
+	if (playerArr[turn] === simonArr[turn]) {
+		if (turn === round) {
+			round += 1;
+			playerArr = [];
+			gamePlay();
+		} else {
+			turn += 1;
+		}
+	} else {
+		alert("You lose!");
+		init();
 	}
-	setTimeout(() => {
-		playerH3.innerText = "PLAYER SAYS...";
-	}, 1500 * 1);
 }
 
-function playSimonColors(simonArr, i) {
+function playSimonColors(i) {
 	if (simonArr[i] === "R") {
 		if (redDiv.classList.contains("red-button")) {
 			redDiv.classList.add("red-button-glow");
@@ -166,6 +151,15 @@ function playSimonColors(simonArr, i) {
 	}
 }
 
+function getSimonMove() {
+	playerH3.innerText = "SIMON SAYS...";
+	for (let i = 0; i <= round; i++) {
+		setTimeout(() => {
+			playSimonColors(i);
+		}, 1000 * i);
+	}
+}
+
 function setSimonColor(num) {
 	if (num === 1) {
 		simonArr.push("R");
@@ -184,12 +178,26 @@ function getRandomNumber(min, max) {
 
 /*----- event listeners -----*/
 gameBoard.addEventListener("click", function (event) {
-	getPlayerMove(event, playerArr);
+	getPlayerMove(event);
 });
 resetBtn.addEventListener("click", init);
-playBtn.addEventListener("click", function (event) {
+playBtn.addEventListener("click", function () {
 	playBtn.style.display = "none";
+	for (let i = 0; i < 50; i++) {
+		setSimonColor(getRandomNumber(1, 4));
+	}
 	setTimeout(() => {
-		gamePlay(event, simonArr);
+		gamePlay();
 	}, 500);
 });
+
+// function startGame() {
+// 	// playBtn.style.display = "none";
+// 	for (let i = 0; i < 50; i++) {
+// 		setSimonColor(getRandomNumber(1, 4));
+// 	}
+// 	setTimeout(() => {
+// 		gamePlay();
+// 	}, 500);
+// }
+// startGame();

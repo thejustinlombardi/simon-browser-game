@@ -22,7 +22,8 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
-	background-image: linear-gradient(black, white);
+	background-color: black;
+	/* background-image: linear-gradient(black, white); */
 }
 header {
 	display: flex;
@@ -100,6 +101,7 @@ h2 {
 .modal-buttons:hover,
 .how-to-button:hover {
 	background-image: linear-gradient(red, green);
+	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
 
 .button-container {
@@ -116,13 +118,15 @@ h2 {
 	justify-content: space-between;
 	align-content: center;
 	margin: auto;
-	margin-top: 3rem;
+	margin-top: 1rem;
+	margin-bottom: -1rem;
 	color: ivory;
 	font-family: "Righteous", cursive;
 }
 
 .player-turn {
 	font-size: 3em;
+	padding-left: 70px;
 }
 /* GAME BOARD STYLING */
 
@@ -134,7 +138,7 @@ h2 {
 	position: relative;
 	width: 60%;
 	margin: auto;
-	margin-top: 2rem;
+	margin-top: 1rem;
 }
 
 .color-buttons {
@@ -197,7 +201,7 @@ h2 {
 	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
 }
 
-.red-button:hover {
+/* .red-button:hover {
 	background-color: rgba(254, 60, 0, 1);
 	box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);
 }
@@ -212,4 +216,4 @@ h2 {
 .blue-button:hover {
 	background-color: rgba(60, 255, 255, 1);
 	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
-}
+} */

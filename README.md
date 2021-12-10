@@ -2,9 +2,12 @@
 
 ![Simon-the-game](./assets/Simon-Screenshot.png)
 
-## Project Description
+## Technologies Used
 
-My app is called Simon. It's a game app for players who want to play the Simon game online. One player can join and play rounds of Simon with the score being kept automatically and game rounds displayed at the end of each round. The player continues to play to see how many sequences(rounds) they can complete. The player loses the round when their sequence does not match what Simon's sequence is. Players will have the option to play again if they lose the round. In the future, I'd like to add a feature where the player can choose their difficulty and implement a bigger board with more buttons to make it harder. A Diamond level goal would be to add a feature where I can add tones to the buttons like the classic Simon game.
+- HTML
+- CSS
+- JavaScript
+- GarageBand
 
 ## User Stories
 

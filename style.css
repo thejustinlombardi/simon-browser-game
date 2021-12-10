@@ -60,7 +60,6 @@ body {
 	justify-content: center;
 	text-align: center;
 	background-color: black;
-	/* background-image: linear-gradient(black, white); */
 }
 header {
 	display: -webkit-box;
@@ -310,4 +309,21 @@ h2 {
 	background-color: rgba(0, 200, 255, 1.5);
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
 	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
+}
+
+.round-lost {
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	position: absolute;
+	background-color: black;
+	border: 2px solid whitesmoke;
+	display: none;
+}
+
+.game-over {
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	position: absolute;
+	background-color: black;
+	border: 2px solid whitesmoke;
 }

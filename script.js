@@ -73,10 +73,11 @@ const yellowDiv = document.querySelector(".yellow-button");
 const blueDiv = document.querySelector(".blue-button");
 const playBtn = document.querySelector(".play-button");
 const resetBtn = document.querySelector(".reset-btn");
+const gameOverReset = document.querySelector(".game-reset");
+const gameOverEl = document.querySelector("section");
 let playerH3 = document.querySelector(".player-turn");
 let roundNum = document.querySelector(".round-num");
 let highScoreEl = document.querySelector(".high-score");
-
 /*----- Functions -----*/
 /*----- Initializing Function -----*/
 function init() {
@@ -89,6 +90,8 @@ function init() {
 	roundNum.innerText = `Round: ${round}`;
 	playerH3.innerText = "SIMON SAYS...";
 	playBtn.style.display = "inline";
+	gameOverEl.classList.remove("game-over");
+	gameOverEl.classList.add("round-lost");
 }
 
 /*----- Start of Game Play Function -----*/
@@ -157,7 +160,8 @@ function getPlayerMove(event) {
 			} else {
 				window.localStorage.setItem("score", round);
 			}
-			alert("You lose!");
+			gameOverEl.classList.remove("round-lost");
+			gameOverEl.classList.add("game-over");
 			playerTurn = false;
 		}
 	}
@@ -235,6 +239,7 @@ function getRandomNumber(min, max) {
 }
 
 /*----- Event Listeners -----*/
+gameOverReset.addEventListener("click", init);
 gameBoard.addEventListener("click", function (event) {
 	getPlayerMove(event);
 });

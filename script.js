@@ -5,6 +5,10 @@ const redAudio = new Audio("./sounds/Short-Hi-E.m4a");
 const greenAudio = new Audio("./sounds/Short-C-Sharp.m4a");
 const yellowAudio = new Audio("./sounds/Short-A.m4a");
 const blueAudio = new Audio("./sounds/Short-E.m4a");
+redAudio.playbackRate = 2;
+greenAudio.playbackRate = 2;
+yellowAudio.playbackRate = 2;
+blueAudio.playbackRate = 2;
 
 //-------- Audio Functions ------------//
 function playRedAudio() {
@@ -57,6 +61,7 @@ let simonArr = [];
 let playerArr = [];
 let round = 0;
 let turn = 0;
+let playerTurn = false;
 let storage;
 let highScore = window.localStorage.getItem("score");
 
@@ -79,6 +84,7 @@ function init() {
 	highScoreEl.innerText = `High Score: ${highScore}`;
 	simonArr = [];
 	playerArr = [];
+	playerTurn = false;
 	round = 0;
 	roundNum.innerText = `Round: ${round}`;
 	playerH3.innerText = "SIMON SAYS...";
@@ -101,54 +107,59 @@ function gamePlay() {
 
 /*----- Player Function, Triggers user input and round progression conditionals -----*/
 function getPlayerMove(event) {
-	if (event.target.id === "red-button") {
-		redDiv.classList.add("red-button-glow");
-		playRedAudio();
-		setTimeout(() => {
-			redDiv.classList.remove("red-button-glow");
-		}, 500);
-		playerArr.push("R");
-	} else if (event.target.id === "green-button") {
-		greenDiv.classList.add("green-button-glow");
-		playGreenAudio();
-		setTimeout(() => {
-			greenDiv.classList.remove("green-button-glow");
-		}, 500);
-		playerArr.push("G");
-	} else if (event.target.id === "yellow-button") {
-		yellowDiv.classList.add("yellow-button-glow");
-		playYellowAudio();
-		setTimeout(() => {
-			yellowDiv.classList.remove("yellow-button-glow");
-		}, 500);
-		playerArr.push("Y");
-	} else if (event.target.id === "blue-button") {
-		blueDiv.classList.add("blue-button-glow");
-		playBlueAudio();
-		setTimeout(() => {
-			blueDiv.classList.remove("blue-button-glow");
-		}, 500);
-		playerArr.push("B");
-	}
-
-	if (playerArr[turn] === simonArr[turn]) {
-		if (turn === round) {
-			round += 1;
-			playerArr = [];
-			gamePlay();
-		} else {
-			turn += 1;
+	if (playerTurn === true) {
+		if (event.target.id === "red-button") {
+			redDiv.classList.add("red-button-glow");
+			playRedAudio();
+			setTimeout(() => {
+				redDiv.classList.remove("red-button-glow");
+			}, 500);
+			playerArr.push("R");
+		} else if (event.target.id === "green-button") {
+			greenDiv.classList.add("green-button-glow");
+			playGreenAudio();
+			setTimeout(() => {
+				greenDiv.classList.remove("green-button-glow");
+			}, 500);
+			playerArr.push("G");
+		} else if (event.target.id === "yellow-button") {
+			yellowDiv.classList.add("yellow-button-glow");
+			playYellowAudio();
+			setTimeout(() => {
+				yellowDiv.classList.remove("yellow-button-glow");
+			}, 500);
+			playerArr.push("Y");
+		} else if (event.target.id === "blue-button") {
+			blueDiv.classList.add("blue-button-glow");
+			playBlueAudio();
+			setTimeout(() => {
+				blueDiv.classList.remove("blue-button-glow");
+			}, 500);
+			playerArr.push("B");
 		}
-	} else {
-		if (window.localStorage.getItem("score") !== null) {
-			storage = window.localStorage.getItem("score");
-			if (round > storage) {
-				window.localStorage.setItem("score", round);
+
+		if (playerArr[turn] === simonArr[turn]) {
+			if (turn === round) {
+				round += 1;
+				playerArr = [];
+				setTimeout(() => {
+					gamePlay();
+				}, 1000);
+			} else {
+				turn += 1;
 			}
 		} else {
-			window.localStorage.setItem("score", round);
+			if (window.localStorage.getItem("score") !== null) {
+				storage = window.localStorage.getItem("score");
+				if (round > storage) {
+					window.localStorage.setItem("score", round);
+				}
+			} else {
+				window.localStorage.setItem("score", round);
+			}
+			alert("You lose!");
+			playerTurn = false;
 		}
-		alert("You lose!");
 	}
 }
 
@@ -187,16 +198,20 @@ function playSimonColors(i) {
 			}, 800);
 		}
 	}
-	gameBoard.style.pointerEvents = "auto";
 }
 
 /*----- Simon Function that iterates through his array to play necessary colors in the playSimonColors -----*/
 function getSimonMove() {
-	gameBoard.style.pointerEvents = "none";
 	playerH3.innerText = "SIMON SAYS...";
 	for (let i = 0; i <= round; i++) {
 		setTimeout(() => {
 			playSimonColors(i);
+			if (i === round) {
+				playerTurn = true;
+				setTimeout(() => {
+					playerH3.innerText = "PLAYER SAYS...";
+				}, 1000);
+			}
 		}, 1000 * i);
 	}
 }

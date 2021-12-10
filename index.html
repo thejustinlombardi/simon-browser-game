@@ -18,18 +18,19 @@
     <div class="button-container">
             <button class="modal-buttons" id="openModal">About Simon</button>
             <button class="how-to-button">How To Play</button>
-            <button class="difficulty-button">Difficulty</button>
-            <button class="high-score-button">High Scores</button>
+            <!-- <button class="difficulty-button">Difficulty</button> -->
+            <!-- <button class="high-score-button">High Scores</button> -->
             
 
     </div>
     <div class="round-container">
-        <div class="stats round-num">Round: </div>
+        <div class="stats round-num">Round: 0</div>
         <h3 class="player-turn">SIMON SAYS...</h3>
-        <div class="stats time">Time Remaining: </div>
+        <div class="stats high-score">High Score: 0</div>
     </div>
-    <div>
-    <button id="play-button">Play</button>
+    <div class="reset-container">
+    <button class="play-button">Play</button>
+    <button class="reset-btn">Reset</button>
     </div>
    
     <div class="game-board">
@@ -38,18 +39,18 @@
         <div class="color-buttons yellow-button" id="yellow-button"></div>
         <div class="color-buttons blue-button" id="blue-button"></div>
     </div>
-    <div>
-       
-        <button class="reset-btn">Reset</button>
-    </div>
+
     <div class="modal">
         <div class="modal-textbox">
             <h3>About Simon!</h3>
-            <p></p>
-            <p></p>
-            <p></p>
+            <!-- About Simon reference from Wikipedia page -->
+            <!-- https://en.wikipedia.org/wiki/Simon_(game) -->
+            <p>Simon is an electronic game of memory skill invented by Ralph H. Baer and Howard J. Morrison, working for toy design
+            firm Marvin Glass and Associates, with software programming by Lenny Cope. The device creates a series of tones and
+            lights and requires a user to repeat the sequence. If the user succeeds, the series becomes progressively longer and
+            more complex. Once the user fails or the time limit runs out, the game is over.</p>
             <div class="modal-footer">
-                <button class="modal-buttons" id="close" href="#">Close</button>
+                <button class="modal-buttons" id="close">Close</button>
             </div>
         </div>
     </div>
@@ -57,13 +58,19 @@
     <div class="how-to-modal">
         <div class="how-to-modal-textbox">
             <h3>How to play Simon! </h3>
-            <ul">
-                <li></li>
-                <li></li>
-                </ul>
+            <ol>
+                <li>Click the 'Play' button</li>
+                <li>Watch for what Simon 'says'! After he finishes his round, it will be your turn!</li>
+                <li>When it's your turn, click the colored buttons in the same order that Simon said!</li>
+                <li>Keep track of how far you've gone with the 'Round' indicator. Your top 10 scores will be stored in the 'High Scores tab! </li>
+                <li>Have fun and enjoy!</li>
+                <li>Exceed 50 sequences for a special surprise!</li>
+            </ol>
                 <div class="how-to-modal-footer">
-                    <button class="modal-buttons" id="how-to-close" href="#">Close</button>
+                    <button class="modal-buttons" id="how-to-close">Close</button>
                 </div>
+         </div>
+    </div> 
     <script src="script.js"></script>
 </body>
 

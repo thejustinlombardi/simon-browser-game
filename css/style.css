@@ -53,6 +53,8 @@ body {
 	justify-content: center;
 	text-align: center;
 	background-color: black;
+	max-width: 1200px;
+	max-height: 1000px;
 }
 header {
 	display: -webkit-box;
@@ -66,8 +68,8 @@ header {
 h1,
 h5 {
 	font-family: "Righteous", cursive;
-	letter-spacing: 4rem;
-	font-size: 5em;
+	letter-spacing: 3rem;
+	font-size: 4em;
 	text-shadow: 5px 5px whitesmoke;
 	-webkit-animation-name: text-animation;
 	animation-name: text-animation;
@@ -83,7 +85,7 @@ h2 {
 	font-size: 200%;
 	font-family: "Righteous", cursive;
 	text-shadow: 2px 2px whitesmoke;
-	margin-top: -5%;
+	margin-top: -3%;
 	color: rgba(45, 255, 255, 100%);
 }
 
@@ -120,6 +122,7 @@ h2 {
 	text-align: right;
 }
 
+.switch,
 .play-button,
 .reset-btn,
 .modal-buttons,
@@ -143,7 +146,7 @@ h2 {
 	cursor: pointer;
 }
 
-.modal-buttons:hover,
+.switch:hover .modal-buttons:hover,
 .how-to-button:hover {
 	background-image: -o-linear-gradient(red, green);
 	background-image: -webkit-gradient(
@@ -315,9 +318,10 @@ h2 {
 }
 
 .game-over {
-	padding-top: 1rem;
-	padding-bottom: 2rem;
 	position: absolute;
 	background-color: black;
 	border: 2px solid whitesmoke;
+	z-index: 1;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
 }

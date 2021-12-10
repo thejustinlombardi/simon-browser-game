@@ -75,6 +75,7 @@ const playBtn = document.querySelector(".play-button");
 const resetBtn = document.querySelector(".reset-btn");
 const gameOverReset = document.querySelector(".game-reset");
 const gameOverEl = document.querySelector("section");
+const toggleTheme = document.querySelector(".switch");
 let playerH3 = document.querySelector(".player-turn");
 let roundNum = document.querySelector(".round-num");
 let highScoreEl = document.querySelector(".high-score");
@@ -238,7 +239,19 @@ function getRandomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+/*----- Function that switches the color theme of the site  -----*/
+/*----- Reference goes to Melissa Morgan for showing me how to do this. -----*/
+function mysteryTheme() {
+	let theme = document.getElementById("theme");
+	if (theme.getAttribute("href") == `./css/style.css`) {
+		theme.setAttribute("href", `./css/alttheme.css`);
+	} else {
+		theme.setAttribute("href", `./css/style.css`);
+	}
+}
+
 /*----- Event Listeners -----*/
+toggleTheme.addEventListener("click", mysteryTheme);
 gameOverReset.addEventListener("click", init);
 gameBoard.addEventListener("click", function (event) {
 	getPlayerMove(event);

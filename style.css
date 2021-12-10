@@ -131,7 +131,7 @@ h2 {
 .reset-btn,
 .modal-buttons,
 .how-to-button {
-	padding: 14px 18px;
+	padding: 12px 18px;
 	background-image: -o-linear-gradient(blue, yellow);
 	background-image: -webkit-gradient(
 		linear,
@@ -175,7 +175,7 @@ h2 {
 	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 /* STATS STYLING */
@@ -201,7 +201,7 @@ h2 {
 }
 
 .player-turn {
-	font-size: 3em;
+	font-size: 2.5em;
 	padding-left: 70px;
 }
 
@@ -260,7 +260,7 @@ h2 {
 	-ms-flex-align: center;
 	align-items: center;
 	position: relative;
-	width: 60%;
+	width: 50%;
 	margin: auto;
 	margin-top: 1rem;
 }

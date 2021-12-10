@@ -1,28 +1,27 @@
 //-------- Audio Code ------------//
-const redAudio = new Audio("./sounds/High-E 1.m4a");
-// redAudio.src = ;
-const greenAudio = new Audio("./sounds/C-Sharp.m4a");
-// greenAudio.src = ;
+// I used the below reference to help implement audio into my game.
+// https://www.codegrepper.com/code-examples/javascript/how+to+trigger+an+audio+clip+when+button+is+clicked+html
+const redAudio = new Audio("./sounds/Short-Hi-E.m4a");
+const greenAudio = new Audio("./sounds/Short-C-Sharp.m4a");
 const yellowAudio = new Audio("./sounds/Short-A.m4a");
-// yellowAudio.src = ;
 const blueAudio = new Audio("./sounds/Short-E.m4a");
-// blueAudio.src = ;
 
-// function playRedAudio() {
-// 	redAudio.play();
-// }
-// function playGreenAudio() {
-// 	greenAudio.play();
-// }
-// function playYellowAudio() {
-// 	yellowAudio.play();
-// }
-// function playBlueAudio() {
-// 	blueAudio.play();
-// }
+//-------- Audio Functions ------------//
+function playRedAudio() {
+	redAudio.play();
+}
+function playGreenAudio() {
+	greenAudio.play();
+}
+function playYellowAudio() {
+	yellowAudio.play();
+}
+function playBlueAudio() {
+	blueAudio.play();
+}
 //-------- Modals Code ------------//
 
-/*----- cached element references -----*/
+/*----- Cached Element References -----*/
 const openBtn = document.querySelector("#openModal");
 const modal = document.querySelector(".modal");
 const close = document.querySelector("#close");
@@ -30,7 +29,7 @@ const howToBtn = document.querySelector(".how-to-button");
 const howToModal = document.querySelector(".how-to-modal");
 const closeHowToBtn = document.querySelector("#how-to-close");
 
-/*----- functions -----*/
+/*----- Functions -----*/
 const openModal = () => {
 	modal.style.display = "block";
 };
@@ -43,7 +42,7 @@ const closeModal = () => {
 const closeHowToModal = () => {
 	howToModal.style.display = "none";
 };
-/*----- event listeners -----*/
+/*----- Event Listeners -----*/
 howToBtn.addEventListener("click", openHowToModal);
 openBtn.addEventListener("click", openModal);
 close.addEventListener("click", closeModal);
@@ -53,19 +52,15 @@ closeHowToBtn.addEventListener("click", closeHowToModal);
 // ----------Game Play Code--------- //
 // ----------Constants--------- //
 
-/*----- app's state (variables) -----*/
+/*----- App's State (Variables) -----*/
 let simonArr = [];
 let playerArr = [];
 let round = 0;
 let turn = 0;
-let highScore;
+let storage;
+let highScore = window.localStorage.getItem("score");
 
-// for (let i = 0; i < 50; i++) {
-// 	setSimonColor(getRandomNumber(1, 4));
-// }
-// console.log(simonArr);
-// getSimonMove(event, simonArr, round);
-/*----- cached element references -----*/
+/*----- Cached Element References -----*/
 const gameBoard = document.querySelector(".game-board");
 const redDiv = document.querySelector(".red-button");
 const greenDiv = document.querySelector(".green-button");
@@ -77,7 +72,8 @@ let playerH3 = document.querySelector(".player-turn");
 let roundNum = document.querySelector(".round-num");
 let highScoreEl = document.querySelector(".high-score");
 
-/*----- functions -----*/
+/*----- Functions -----*/
+/*----- Initializing Function -----*/
 function init() {
 	highScore = window.localStorage.getItem("score");
 	highScoreEl.innerText = `High Score: ${highScore}`;
@@ -89,6 +85,8 @@ function init() {
 	playBtn.style.display = "inline";
 }
 
+/*----- Start of Game Play Function -----*/
+/*----- Sets up the round, Invokes Simon -----*/
 function gamePlay() {
 	highScore = window.localStorage.getItem("score");
 	turn = 0;
@@ -101,31 +99,32 @@ function gamePlay() {
 	}, 1000);
 }
 
+/*----- Player Function, Triggers user input and round progression conditionals -----*/
 function getPlayerMove(event) {
 	if (event.target.id === "red-button") {
-		// playRedAudio();
 		redDiv.classList.add("red-button-glow");
+		playRedAudio();
 		setTimeout(() => {
 			redDiv.classList.remove("red-button-glow");
 		}, 500);
 		playerArr.push("R");
 	} else if (event.target.id === "green-button") {
-		// playGreenAudio();
 		greenDiv.classList.add("green-button-glow");
+		playGreenAudio();
 		setTimeout(() => {
 			greenDiv.classList.remove("green-button-glow");
 		}, 500);
 		playerArr.push("G");
 	} else if (event.target.id === "yellow-button") {
-		// playYellowAudio();
 		yellowDiv.classList.add("yellow-button-glow");
+		playYellowAudio();
 		setTimeout(() => {
 			yellowDiv.classList.remove("yellow-button-glow");
 		}, 500);
 		playerArr.push("Y");
 	} else if (event.target.id === "blue-button") {
-		// playBlueAudio();
 		blueDiv.classList.add("blue-button-glow");
+		playBlueAudio();
 		setTimeout(() => {
 			blueDiv.classList.remove("blue-button-glow");
 		}, 500);
@@ -141,23 +140,24 @@ function getPlayerMove(event) {
 			turn += 1;
 		}
 	} else {
-		alert("You lose!");
 		if (window.localStorage.getItem("score") !== null) {
-			let storage = window.localStorage.getItem(score);
+			storage = window.localStorage.getItem("score");
 			if (round > storage) {
 				window.localStorage.setItem("score", round);
 			}
 		} else {
 			window.localStorage.setItem("score", round);
 		}
+		alert("You lose!");
 	}
 }
 
+/*----- Simon Function that plays his Sound and Colors -----*/
 function playSimonColors(i) {
 	if (simonArr[i] === "R") {
 		if (redDiv.classList.contains("red-button")) {
 			redDiv.classList.add("red-button-glow");
-			// playRedAudio();
+			playRedAudio();
 			setTimeout(() => {
 				redDiv.classList.remove("red-button-glow");
 			}, 800);
@@ -165,7 +165,7 @@ function playSimonColors(i) {
 	} else if (simonArr[i] === "G") {
 		if (greenDiv.classList.contains("green-button")) {
 			greenDiv.classList.add("green-button-glow");
-			// playGreenAudio();
+			playGreenAudio();
 			setTimeout(() => {
 				greenDiv.classList.remove("green-button-glow");
 			}, 800);
@@ -173,7 +173,7 @@ function playSimonColors(i) {
 	} else if (simonArr[i] === "Y") {
 		if (yellowDiv.classList.contains("yellow-button")) {
 			yellowDiv.classList.add("yellow-button-glow");
-			// playYellowAudio();
+			playYellowAudio();
 			setTimeout(() => {
 				yellowDiv.classList.remove("yellow-button-glow");
 			}, 800);
@@ -181,7 +181,7 @@ function playSimonColors(i) {
 	} else if (simonArr[i] === "B") {
 		if (blueDiv.classList.contains("blue-button")) {
 			blueDiv.classList.add("blue-button-glow");
-			// playBlueAudio();
+			playBlueAudio();
 			setTimeout(() => {
 				blueDiv.classList.remove("blue-button-glow");
 			}, 800);
@@ -190,6 +190,7 @@ function playSimonColors(i) {
 	gameBoard.style.pointerEvents = "auto";
 }
 
+/*----- Simon Function that iterates through his array to play necessary colors in the playSimonColors -----*/
 function getSimonMove() {
 	gameBoard.style.pointerEvents = "none";
 	playerH3.innerText = "SIMON SAYS...";
@@ -200,6 +201,7 @@ function getSimonMove() {
 	}
 }
 
+/*----- Simon Function that sets randomized numbers to letter values then pushes them to Simon's Array -----*/
 function setSimonColor(num) {
 	if (num === 1) {
 		simonArr.push("R");
@@ -212,11 +214,12 @@ function setSimonColor(num) {
 	}
 }
 
+/*----- Function that randomly generates a number given a min and max value  -----*/
 function getRandomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-/*----- event listeners -----*/
+/*----- Event Listeners -----*/
 gameBoard.addEventListener("click", function (event) {
 	getPlayerMove(event);
 });
@@ -231,13 +234,5 @@ playBtn.addEventListener("click", function () {
 	}, 500);
 });
 
-// function startGame() {
-// 	// playBtn.style.display = "none";
-// 	for (let i = 0; i < 50; i++) {
-// 		setSimonColor(getRandomNumber(1, 4));
-// 	}
-// 	setTimeout(() => {
-// 		gamePlay();
-// 	}, 500);
-// }
-// startGame();
+/*----- High Score Value -----*/
+highScoreEl.innerText = `High Score: ${highScore}`;

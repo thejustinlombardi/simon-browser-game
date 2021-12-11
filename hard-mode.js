@@ -241,17 +241,17 @@ function getRandomNumber(min, max) {
 
 /*----- Function that switches the color theme of the site  -----*/
 /*----- Reference goes to Melissa Morgan for showing me how to do this. -----*/
-function mysteryTheme() {
+function switchTheme() {
 	let theme = document.getElementById("theme");
-	if (theme.getAttribute("href") == `./css/style.css`) {
-		theme.setAttribute("href", `./css/alttheme.css`);
+	if (theme.getAttribute("href") == `./css/darkhard.css`) {
+		theme.setAttribute("href", `./css/lighthard.css`);
 	} else {
-		theme.setAttribute("href", `./css/style.css`);
+		theme.setAttribute("href", `./css/darkhard.css`);
 	}
 }
 
 /*----- Event Listeners -----*/
-toggleTheme.addEventListener("click", mysteryTheme);
+toggleTheme.addEventListener("click", switchTheme);
 gameOverReset.addEventListener("click", init);
 gameBoard.addEventListener("click", function (event) {
 	getPlayerMove(event);

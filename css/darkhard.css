@@ -12,31 +12,31 @@
 
 @-webkit-keyframes text-animation {
 	0% {
-		color: orange;
+		color: whitesmoke;
 	}
 	35% {
-		color: yellow;
+		color: white;
 	}
 	65% {
-		color: lightgreen;
+		color: black;
 	}
 	100% {
-		color: lightblue;
+		color: black;
 	}
 }
 
 @keyframes text-animation {
 	0% {
-		color: orange;
+		color: whitesmoke;
 	}
 	35% {
-		color: yellow;
+		color: white;
 	}
 	65% {
-		color: lightgreen;
+		color: black;
 	}
 	100% {
-		color: lightblue;
+		color: black;
 	}
 }
 
@@ -52,7 +52,7 @@ body {
 	-ms-flex-pack: center;
 	justify-content: center;
 	text-align: center;
-	background-color: rgba(110, 0, 255, 100%);
+	background-color: black;
 	max-width: 1200px;
 	max-height: 1000px;
 }
@@ -86,7 +86,7 @@ h2 {
 	font-family: "Righteous", cursive;
 	text-shadow: 2px 2px whitesmoke;
 	margin-top: -3%;
-	color: rgba(45, 255, 255, 100%);
+	color: ivory;
 }
 
 /* MODAL STYLING */
@@ -129,19 +129,19 @@ h2 {
 .modal-buttons,
 .how-to-button {
 	padding: 12px 18px;
+	background-image: -o-linear-gradient(black, white);
 	background-image: -webkit-gradient(
 		linear,
 		left top,
 		left bottom,
-		from(lightgreen),
-		to(yellow)
+		from(black),
+		to(white)
 	);
-	background-image: -o-linear-gradient(lightgreen, yellow);
-	background-image: linear-gradient(lightgreen, yellow);
+	background-image: linear-gradient(black, white);
 	border: none;
 	outline: none;
 	border-radius: 3px;
-	color: black;
+	color: ivory;
 	font-family: "Righteous", cursive;
 	font-weight: 900;
 	cursor: pointer;
@@ -151,19 +151,18 @@ h2 {
 .switch:hover,
 .modal-buttons:hover,
 .how-to-button:hover {
+	background-image: -o-linear-gradient(white, black);
 	background-image: -webkit-gradient(
 		linear,
 		left top,
 		left bottom,
-		from(orange),
-		to(lightblue)
+		from(white),
+		to(black)
 	);
-	background-image: -o-linear-gradient(orange, lightblue);
-	background-image: linear-gradient(orange, lightblue);
+	background-image: linear-gradient(white, black);
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
-
 .footer-container,
 .button-container {
 	display: -webkit-box;
@@ -180,7 +179,7 @@ h2 {
 
 a {
 	text-decoration: none;
-	color: black;
+	color: ivory;
 }
 
 ul {
@@ -233,28 +232,28 @@ li {
 
 .reset-btn,
 .play-button {
+	background-image: -o-linear-gradient(white, black);
 	background-image: -webkit-gradient(
 		linear,
 		left top,
 		left bottom,
-		from(orange),
-		to(lightblue)
+		from(white),
+		to(black)
 	);
-	background-image: -o-linear-gradient(orange, lightblue);
-	background-image: linear-gradient(orange, lightblue);
+	background-image: linear-gradient(white, black);
 }
 
 .reset-btn:hover,
 .play-button:hover {
+	background-image: -o-linear-gradient(white, black);
 	background-image: -webkit-gradient(
 		linear,
 		left top,
 		left bottom,
-		from(lightgreen),
-		to(yellow)
+		from(white),
+		to(black)
 	);
-	background-image: -o-linear-gradient(lightgreen, yellow);
-	background-image: linear-gradient(lightgreen, yellow);
+	background-image: linear-gradient(white, black);
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
@@ -287,43 +286,43 @@ li {
 }
 
 .red-button {
-	background-color: rgba(255, 164, 0, 0.7);
+	background-color: rgba(0, 0, 0, 100%);
 	border-top-left-radius: 60%;
 }
 .green-button {
-	background-color: rgba(0, 230, 14, 0.7);
+	background-color: rgba(0, 0, 0, 100%);
 	border-top-right-radius: 60%;
 }
 .yellow-button {
-	background-color: rgba(255, 255, 90, 0.7);
+	background-color: rgba(0, 0, 0, 100%);
 	border-bottom-left-radius: 60%;
 }
 .blue-button {
-	background-color: rgba(0, 200, 255, 0.7);
+	background-color: rgba(0, 0, 0, 100%);
 	border-bottom-right-radius: 60%;
 }
 
 /* Adding glow effect to buttons to 'light up' */
 /* https://superdevresources.com/css-button-glow-effect// */
 .red-button-glow {
-	background-color: rgba(255, 164, 0, 1);
-	-webkit-box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);
-	box-shadow: 0px 10px 30px 0px rgba(254, 25, 25, 0.8);
+	background-color: rgba(255, 255, 255, 100%);
+	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
+	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
 .green-button-glow {
-	background-color: rgba(0, 230, 14, 1);
-	-webkit-box-shadow: 0px 10px 30px 0px rgba(0, 191, 14, 0.8);
-	box-shadow: 0px 10px 30px 0px rgba(0, 191, 14, 0.8);
+	background-color: rgba(255, 255, 255, 100%);
+	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
+	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
 .yellow-button-glow {
-	background-color: rgba(255, 255, 90, 1);
-	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 250, 90, 0.8);
-	box-shadow: 0px 10px 30px 0px rgba(255, 250, 90, 0.8);
+	background-color: rgba(255, 255, 255, 100%);
+	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
+	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
 .blue-button-glow {
-	background-color: rgba(0, 200, 255, 1);
-	-webkit-box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
-	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
+	background-color: rgba(255, 255, 255, 100%);
+	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
+	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
 
 /* End of game styling */

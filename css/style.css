@@ -177,6 +177,19 @@ h2 {
 	justify-content: space-around;
 }
 
+a {
+	text-decoration: none;
+	color: ivory;
+}
+
+ul {
+	margin: auto;
+	padding-right: 3rem;
+}
+li {
+	display: inline-block;
+	list-style: none;
+}
 /* STATS STYLING */
 
 .round-container {
@@ -262,6 +275,7 @@ h2 {
 	width: 50%;
 	margin: auto;
 	margin-top: 1rem;
+	margin-bottom: 3rem;
 }
 
 .color-buttons {
@@ -311,6 +325,7 @@ h2 {
 	box-shadow: 0px 10px 30px 0px rgba(0, 152, 255, 0.8);
 }
 
+/* End of game styling */
 .round-lost {
 	padding-top: 1rem;
 	padding-bottom: 2rem;

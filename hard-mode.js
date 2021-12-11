@@ -243,10 +243,10 @@ function getRandomNumber(min, max) {
 /*----- Reference goes to Melissa Morgan for showing me how to do this. -----*/
 function switchTheme() {
 	let theme = document.getElementById("theme");
-	if (theme.getAttribute("href") == `./css/style.css`) {
-		theme.setAttribute("href", `./css/alttheme.css`);
+	if (theme.getAttribute("href") == `./css/darkhard.css`) {
+		theme.setAttribute("href", `./css/lighthard.css`);
 	} else {
-		theme.setAttribute("href", `./css/style.css`);
+		theme.setAttribute("href", `./css/darkhard.css`);
 	}
 }
 

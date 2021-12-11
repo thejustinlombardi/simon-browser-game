@@ -122,6 +122,7 @@ h2 {
 	text-align: right;
 }
 
+.footer-buttons,
 .switch,
 .play-button,
 .reset-btn,
@@ -146,7 +147,9 @@ h2 {
 	cursor: pointer;
 }
 
-.switch:hover .modal-buttons:hover,
+.footer-buttons:hover,
+.switch:hover,
+.modal-buttons:hover,
 .how-to-button:hover {
 	background-image: -o-linear-gradient(red, green);
 	background-image: -webkit-gradient(
@@ -160,7 +163,7 @@ h2 {
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
-
+.footer-container,
 .button-container {
 	display: -webkit-box;
 	display: -ms-flexbox;

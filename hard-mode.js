@@ -61,9 +61,10 @@ let simonArr = [];
 let playerArr = [];
 let round = 0;
 let turn = 0;
+let increment = 1;
 let playerTurn = false;
 let storage;
-let highScore = window.localStorage.getItem("score");
+let hardHighScore = window.localStorage.getItem("hard-score");
 
 /*----- Cached Element References -----*/
 const gameBoard = document.querySelector(".game-board");
@@ -83,10 +84,11 @@ let highScoreEl = document.querySelector(".high-score");
 /*----- Initializing Function -----*/
 function init() {
 	highScore = window.localStorage.getItem("score");
-	highScoreEl.innerText = `High Score: ${highScore}`;
+	highScoreEl.innerText = `High Score: ${hardHighScore}`;
 	simonArr = [];
 	playerArr = [];
 	playerTurn = false;
+	increment = 1;
 	round = 0;
 	roundNum.innerText = `Round: ${round}`;
 	playerH3.innerText = "SIMON SAYS...";
@@ -98,10 +100,10 @@ function init() {
 /*----- Start of Game Play Function -----*/
 /*----- Sets up the round, Invokes Simon -----*/
 function gamePlay() {
-	highScore = window.localStorage.getItem("score");
+	hardHighScore = window.localStorage.getItem("hard-score");
 	turn = 0;
 	roundNum.innerText = `Round: ${round}`;
-	highScoreEl.innerText = `High Score: ${highScore}`;
+	highScoreEl.innerText = `High Score: ${hardHighScore}`;
 	playerH3.innerText = "SIMON SAYS...";
 
 	setTimeout(() => {
@@ -143,8 +145,9 @@ function getPlayerMove(event) {
 		}
 
 		if (playerArr[turn] === simonArr[turn]) {
-			if (turn === round) {
+			if (turn === increment) {
 				round += 1;
+				increment += 2;
 				playerArr = [];
 				setTimeout(() => {
 					gamePlay();
@@ -153,13 +156,13 @@ function getPlayerMove(event) {
 				turn += 1;
 			}
 		} else {
-			if (window.localStorage.getItem("score") !== null) {
-				storage = window.localStorage.getItem("score");
+			if (window.localStorage.getItem("hard-score") !== null) {
+				storage = window.localStorage.getItem("hard-score");
 				if (round > storage) {
-					window.localStorage.setItem("score", round);
+					window.localStorage.setItem("hard-score", round);
 				}
 			} else {
-				window.localStorage.setItem("score", round);
+				window.localStorage.setItem("hard-score", round);
 			}
 			gameOverEl.classList.remove("round-lost");
 			gameOverEl.classList.add("game-over");
@@ -208,10 +211,10 @@ function playSimonColors(i) {
 /*----- Simon Function that iterates through his array to play necessary colors in the playSimonColors -----*/
 function getSimonMove() {
 	playerH3.innerText = "SIMON SAYS...";
-	for (let i = 0; i <= round; i++) {
+	for (let i = 0; i <= increment; i++) {
 		setTimeout(() => {
 			playSimonColors(i);
-			if (i === round) {
+			if (i === increment) {
 				playerTurn = true;
 				setTimeout(() => {
 					playerH3.innerText = "PLAYER SAYS...";
@@ -268,4 +271,4 @@ playBtn.addEventListener("click", function () {
 });
 
 /*----- High Score Value -----*/
-highScoreEl.innerText = `High Score: ${highScore}`;
+highScoreEl.innerText = `High Score: ${hardHighScore}`;

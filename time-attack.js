@@ -5,10 +5,10 @@ const redAudio = new Audio("./sounds/Short-Hi-E.m4a");
 const greenAudio = new Audio("./sounds/Short-C-Sharp.m4a");
 const yellowAudio = new Audio("./sounds/Short-A.m4a");
 const blueAudio = new Audio("./sounds/Short-E.m4a");
-redAudio.playbackRate = 2;
-greenAudio.playbackRate = 2;
-yellowAudio.playbackRate = 2;
-blueAudio.playbackRate = 2;
+redAudio.playbackRate = 3;
+greenAudio.playbackRate = 3;
+yellowAudio.playbackRate = 3;
+blueAudio.playbackRate = 3;
 
 //-------- Audio Functions ------------//
 function playRedAudio() {

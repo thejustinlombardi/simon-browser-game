@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon-The Game</title>
-    <link id="theme" rel="stylesheet" href="./css/style.css">
+    <link id="theme-time" rel="stylesheet" href="./css/timestyle.css">
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
 </head>
 
@@ -16,21 +16,23 @@
         <h2>The classic game of memory!</h2>
     </header>
     <div class="button-container">
-            <button class="modal-buttons" id="openModal">About Simon</button>
-            <button class="switch">Theme</button>
-            <button class="how-to-button">How To Play</button>
+        <button class="modal-buttons" id="openModal">About Simon</button>
+        <button class="switch">Theme</button>
+        <button class="how-to-button">How To Play</button>
     </div>
 
     <div class="round-container">
         <div class="stats round-num">Round: 0</div>
         <h3 class="player-turn">SIMON SAYS...</h3>
         <div class="stats high-score">High Score: 0</div>
+        
     </div>
     <div class="reset-container">
-    <button class="play-button">Play</button>
-    <button class="reset-btn">Reset</button>
+        <button class="play-button">Play</button>
+        <div class="time-remaining">Time Remaining: 120</div>
+        <button class="reset-btn">Reset</button>
     </div>
-   
+
     <div class="game-board">
         <div class="color-buttons red-button" id="red-button"></div>
         <div class="color-buttons green-button" id="green-button"></div>
@@ -43,10 +45,13 @@
             <h3>About Simon!</h3>
             <!-- About Simon reference from Wikipedia page -->
             <!-- https://en.wikipedia.org/wiki/Simon_(game) -->
-            <p>Simon is an electronic game of memory skill invented by Ralph H. Baer and Howard J. Morrison, working for toy design
-            firm Marvin Glass and Associates, with software programming by Lenny Cope. The device creates a series of tones and
-            lights and requires a user to repeat the sequence. If the user succeeds, the series becomes progressively longer and
-            more complex. Once the user fails or the time limit runs out, the game is over.</p>
+            <p>Simon is an electronic game of memory skill invented by Ralph H. Baer and Howard J. Morrison, working for
+                toy design
+                firm Marvin Glass and Associates, with software programming by Lenny Cope. The device creates a series
+                of tones and
+                lights and requires a user to repeat the sequence. If the user succeeds, the series becomes
+                progressively longer and
+                more complex. Once the user fails or the time limit runs out, the game is over.</p>
             <div class="modal-footer">
                 <button class="modal-buttons" id="close">Close</button>
             </div>
@@ -60,21 +65,26 @@
                 <li>Click the 'Play' button</li>
                 <li>Watch for what Simon 'says'! After he finishes his round, it will be your turn!</li>
                 <li>When it's your turn, click the colored buttons in the same order that Simon said!</li>
-                <li>Keep track of how far you've gone with the 'Round' indicator. Your High Score will be below the 'How To Play' tab! </li>
+                <li>Keep track of how far you've gone with the 'Round' indicator. Your High Score will be below the 'How
+                    To Play' tab! </li>
                 <li>Have fun and enjoy!</li>
                 <li>Exceed 50 sequences for a special surprise!</li>
             </ol>
-                <div class="how-to-modal-footer">
-                    <button class="modal-buttons" id="how-to-close">Close</button>
-                </div>
-         </div>
-    </div> 
+            <div class="how-to-modal-footer">
+                <button class="modal-buttons" id="how-to-close">Close</button>
+            </div>
+        </div>
+    </div>
     <section class="round-lost">
         <h5>You Lose!</h5>
         <button class="reset-btn game-reset">Reset</button>
     </section>
+    <section class="times-up time-el">
+        <h5>Time's Up!</h5>
+        <button class="reset-btn time-game-reset">Reset</button>
+    </section>
 
- 
+
     <div>
         <nav class="footer-container">
             <ul>
@@ -82,10 +92,10 @@
                 <li class="footer-buttons"><a href="hard-mode.html">Hard Mode</a></li>
                 <li class="footer-buttons"><a href="time-attack.html">Time Attack</a></li>
             </ul>
-        </nav>      
+        </nav>
     </div>
 
-    <script src="script.js"></script>
+    <script src="time-attack.js"></script>
 </body>
 
 </html>

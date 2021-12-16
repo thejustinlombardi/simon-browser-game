@@ -63,8 +63,7 @@ let round = 0;
 let turn = 0;
 let increment = 1;
 let playerTurn = false;
-let storage;
-let hardHighScore = window.localStorage.getItem("hard-score");
+let hardHighScore = window.localStorage.getItem("hard-score") || 0;
 
 /*----- Cached Element References -----*/
 const gameBoard = document.querySelector(".game-board");
@@ -77,13 +76,13 @@ const resetBtn = document.querySelector(".reset-btn");
 const gameOverReset = document.querySelector(".game-reset");
 const gameOverEl = document.querySelector("section");
 const toggleTheme = document.querySelector(".switch");
-let playerH3 = document.querySelector(".player-turn");
-let roundNum = document.querySelector(".round-num");
-let highScoreEl = document.querySelector(".high-score");
+const playerH3 = document.querySelector(".player-turn");
+const roundNum = document.querySelector(".round-num");
+const highScoreEl = document.querySelector(".high-score");
 /*----- Functions -----*/
 /*----- Initializing Function -----*/
 function init() {
-	highScore = window.localStorage.getItem("score");
+	highScore = window.localStorage.getItem("hard-score") || 0;
 	highScoreEl.innerText = `High Score: ${hardHighScore}`;
 	simonArr = [];
 	playerArr = [];
@@ -100,7 +99,7 @@ function init() {
 /*----- Start of Game Play Function -----*/
 /*----- Sets up the round, Invokes Simon -----*/
 function gamePlay() {
-	hardHighScore = window.localStorage.getItem("hard-score");
+	hardHighScore = window.localStorage.getItem("hard-score") || 0;
 	turn = 0;
 	roundNum.innerText = `Round: ${round}`;
 	highScoreEl.innerText = `High Score: ${hardHighScore}`;
@@ -157,7 +156,7 @@ function getPlayerMove(event) {
 			}
 		} else {
 			if (window.localStorage.getItem("hard-score") !== null) {
-				storage = window.localStorage.getItem("hard-score");
+				let storage = window.localStorage.getItem("hard-score");
 				if (round > storage) {
 					window.localStorage.setItem("hard-score", round);
 				}

@@ -62,8 +62,7 @@ let playerArr = [];
 let round = 0;
 let turn = 0;
 let playerTurn = false;
-let storage;
-let highScore = window.localStorage.getItem("score");
+let highScore = window.localStorage.getItem("score") || 0;
 
 /*----- Cached Element References -----*/
 const gameBoard = document.querySelector(".game-board");
@@ -76,13 +75,13 @@ const resetBtn = document.querySelector(".reset-btn");
 const gameOverReset = document.querySelector(".game-reset");
 const gameOverEl = document.querySelector("section");
 const toggleTheme = document.querySelector(".switch");
-let playerH3 = document.querySelector(".player-turn");
-let roundNum = document.querySelector(".round-num");
-let highScoreEl = document.querySelector(".high-score");
+const playerH3 = document.querySelector(".player-turn");
+const roundNum = document.querySelector(".round-num");
+const highScoreEl = document.querySelector(".high-score");
 /*----- Functions -----*/
 /*----- Initializing Function -----*/
 function init() {
-	highScore = window.localStorage.getItem("score");
+	highScore = window.localStorage.getItem("score") || 0;
 	highScoreEl.innerText = `High Score: ${highScore}`;
 	simonArr = [];
 	playerArr = [];
@@ -98,7 +97,7 @@ function init() {
 /*----- Start of Game Play Function -----*/
 /*----- Sets up the round, Invokes Simon -----*/
 function gamePlay() {
-	highScore = window.localStorage.getItem("score");
+	highScore = window.localStorage.getItem("score") || 0;
 	turn = 0;
 	roundNum.innerText = `Round: ${round}`;
 	highScoreEl.innerText = `High Score: ${highScore}`;
@@ -154,7 +153,7 @@ function getPlayerMove(event) {
 			}
 		} else {
 			if (window.localStorage.getItem("score") !== null) {
-				storage = window.localStorage.getItem("score");
+				let storage = window.localStorage.getItem("score");
 				if (round > storage) {
 					window.localStorage.setItem("score", round);
 				}

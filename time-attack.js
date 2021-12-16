@@ -62,8 +62,7 @@ let playerArr = [];
 let round = 0;
 let turn = 0;
 let playerTurn = false;
-let storage;
-let highScore = window.localStorage.getItem("time-score");
+let highScore = window.localStorage.getItem("time-score") || 0;
 let timeRemaining = 120;
 let x;
 
@@ -80,17 +79,17 @@ const gameOverReset = document.querySelector(".game-reset");
 const gameOverEl = document.querySelector("section");
 const toggleTheme = document.querySelector(".switch");
 const timesUpEl = document.querySelector(".time-el");
-let playerH3 = document.querySelector(".player-turn");
-let roundNum = document.querySelector(".round-num");
-let highScoreEl = document.querySelector(".high-score");
-let timeRemainingEl = document.querySelector(".time-remaining");
+const playerH3 = document.querySelector(".player-turn");
+const roundNum = document.querySelector(".round-num");
+const highScoreEl = document.querySelector(".high-score");
+const timeRemainingEl = document.querySelector(".time-remaining");
 /*----- Functions -----*/
 /*----- Initializing Function -----*/
 function init() {
 	clearInterval(x);
 	timeRemaining = 120;
 	timeRemainingEl.innerText = `Time Remaining: ${timeRemaining}`;
-	highScore = window.localStorage.getItem("time-score");
+	highScore = window.localStorage.getItem("time-score") || 0;
 	highScoreEl.innerText = `High Score: ${highScore}`;
 	simonArr = [];
 	playerArr = [];
@@ -108,7 +107,7 @@ function init() {
 /*----- Start of Game Play Function -----*/
 /*----- Sets up the round, Invokes Simon -----*/
 function gamePlay() {
-	highScore = window.localStorage.getItem("time-score");
+	highScore = window.localStorage.getItem("time-score") || 0;
 	turn = 0;
 	roundNum.innerText = `Round: ${round}`;
 	highScoreEl.innerText = `High Score: ${highScore}`;
@@ -164,7 +163,7 @@ function getPlayerMove(event) {
 			}
 		} else {
 			if (window.localStorage.getItem("time-score") !== null) {
-				storage = window.localStorage.getItem("time-score");
+				let storage = window.localStorage.getItem("time-score");
 				if (round > storage) {
 					window.localStorage.setItem("time-score", round);
 				}
@@ -231,6 +230,7 @@ function getSimonMove() {
 	}
 }
 
+/*----- Function that decrements the time remaining  -----*/
 function getTimeAttack() {
 	x = setInterval(() => {
 		timeRemaining -= 1;

@@ -5,11 +5,6 @@
 * Browsers: last 4 version
 */
 
-* {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
 @-webkit-keyframes text-animation {
 	0% {
 		color: whitesmoke;
@@ -41,44 +36,7 @@
 }
 
 body {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	text-align: center;
 	background-color: black;
-	max-width: 1200px;
-	max-height: 1000px;
-}
-header {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-}
-h1,
-h5 {
-	font-family: "Righteous", cursive;
-	letter-spacing: 3rem;
-	font-size: 4em;
-	text-shadow: 5px 5px whitesmoke;
-	-webkit-animation-name: text-animation;
-	animation-name: text-animation;
-	-webkit-animation-duration: 4s;
-	animation-duration: 4s;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	margin-left: 4rem;
-	margin-top: 0%;
 }
 
 h2 {
@@ -90,37 +48,6 @@ h2 {
 }
 
 /* MODAL STYLING */
-.how-to-modal,
-.modal {
-	background-color: rgba(0, 0, 0, 0.4);
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 1;
-	overflow: auto;
-	display: none;
-}
-
-.how-to-modal-textbox,
-.modal-textbox {
-	background-color: lightgrey;
-	height: 350px;
-	width: 550px;
-	border-radius: 2px;
-	margin: 150px auto;
-	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-	padding: 2%;
-	line-height: 1.4;
-	font-family: "Righteous", cursive;
-}
-
-.how-to-modal-footer,
-.modal-footer {
-	text-align: right;
-}
 
 .footer-buttons,
 .switch,
@@ -128,7 +55,6 @@ h2 {
 .reset-btn,
 .modal-buttons,
 .how-to-button {
-	padding: 12px 18px;
 	background-image: -o-linear-gradient(black, white);
 	background-image: -webkit-gradient(
 		linear,
@@ -138,13 +64,6 @@ h2 {
 		to(white)
 	);
 	background-image: linear-gradient(black, white);
-	border: none;
-	outline: none;
-	border-radius: 3px;
-	color: ivory;
-	font-family: "Righteous", cursive;
-	font-weight: 900;
-	cursor: pointer;
 }
 
 .footer-buttons:hover,
@@ -163,73 +82,8 @@ h2 {
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
-.footer-container,
-.button-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-around;
-}
 
-a {
-	text-decoration: none;
-	color: ivory;
-}
-
-ul {
-	margin: auto;
-	padding-right: 3rem;
-}
-li {
-	display: inline-block;
-	list-style: none;
-}
 /* STATS STYLING */
-
-.round-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-ms-flex-line-pack: center;
-	align-content: center;
-	margin: auto;
-	margin-top: 1rem;
-	margin-bottom: -1rem;
-	color: ivory;
-	font-family: "Righteous", cursive;
-}
-
-.player-turn {
-	font-size: 2.5em;
-	padding-left: 70px;
-}
-
-.reset-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-around;
-}
-
 .reset-btn,
 .play-button {
 	background-image: -o-linear-gradient(white, black);
@@ -258,32 +112,6 @@ li {
 	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 }
 /* GAME BOARD STYLING */
-
-.game-board {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-	width: 50%;
-	margin: auto;
-	margin-top: 1rem;
-	margin-bottom: 3rem;
-}
-
-.color-buttons {
-	padding: 20%;
-	background-size: contain;
-	background-position: center;
-	border: 2px solid black;
-}
 
 .red-button {
 	background-color: rgba(0, 0, 0, 100%);
@@ -323,23 +151,4 @@ li {
 	background-color: rgba(255, 255, 255, 100%);
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
 	box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 100%);
-}
-
-/* End of game styling */
-.round-lost {
-	padding-top: 1rem;
-	padding-bottom: 2rem;
-	position: absolute;
-	background-color: black;
-	border: 2px solid whitesmoke;
-	display: none;
-}
-
-.game-over {
-	position: absolute;
-	background-color: black;
-	border: 2px solid whitesmoke;
-	z-index: 1;
-	padding-top: 1rem;
-	padding-bottom: 2rem;
 }

@@ -81,6 +81,7 @@ h2 {
 .time-remaining {
 	color: ivory;
 	font-family: "Righteous", cursive;
+	margin-top: 10px;
 }
 
 .time-remaining,

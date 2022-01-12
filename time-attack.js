@@ -96,7 +96,7 @@ function init() {
 	playerTurn = false;
 	round = 0;
 	roundNum.innerText = `Round: ${round}`;
-	playerH3.innerText = "SIMON SAYS...";
+	playerH3.innerText = "";
 	playBtn.style.display = "inline";
 	gameOverEl.classList.remove("game-over");
 	gameOverEl.classList.add("round-lost");
@@ -111,7 +111,7 @@ function gamePlay() {
 	turn = 0;
 	roundNum.innerText = `Round: ${round}`;
 	highScoreEl.innerText = `High Score: ${highScore}`;
-	playerH3.innerText = "SIMON SAYS...";
+	playerH3.innerText = "SIMON SAYS";
 
 	setTimeout(() => {
 		getSimonMove();
@@ -126,28 +126,28 @@ function getPlayerMove(event) {
 			playRedAudio();
 			setTimeout(() => {
 				redDiv.classList.remove("red-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("R");
 		} else if (event.target.id === "green-button") {
 			greenDiv.classList.add("green-button-glow");
 			playGreenAudio();
 			setTimeout(() => {
 				greenDiv.classList.remove("green-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("G");
 		} else if (event.target.id === "yellow-button") {
 			yellowDiv.classList.add("yellow-button-glow");
 			playYellowAudio();
 			setTimeout(() => {
 				yellowDiv.classList.remove("yellow-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("Y");
 		} else if (event.target.id === "blue-button") {
 			blueDiv.classList.add("blue-button-glow");
 			playBlueAudio();
 			setTimeout(() => {
 				blueDiv.classList.remove("blue-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("B");
 		}
 
@@ -157,7 +157,7 @@ function getPlayerMove(event) {
 				playerArr = [];
 				setTimeout(() => {
 					gamePlay();
-				}, 800);
+				}, 600);
 			} else {
 				turn += 1;
 			}
@@ -216,17 +216,17 @@ function playSimonColors(i) {
 
 /*----- Simon Function that iterates through his array to play necessary colors in the playSimonColors -----*/
 function getSimonMove() {
-	playerH3.innerText = "SIMON SAYS...";
+	playerH3.innerText = "SIMON SAYS";
 	for (let i = 0; i <= round; i++) {
 		setTimeout(() => {
 			playSimonColors(i);
 			if (i === round) {
 				playerTurn = true;
 				setTimeout(() => {
-					playerH3.innerText = "PLAYER SAYS...";
-				}, 800);
+					playerH3.innerText = "PLAYER SAYS";
+				}, 600);
 			}
-		}, 800 * i);
+		}, 600 * i);
 	}
 }
 

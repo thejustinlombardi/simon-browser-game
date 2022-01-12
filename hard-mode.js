@@ -5,10 +5,10 @@ const redAudio = new Audio("./sounds/Short-Hi-E.m4a");
 const greenAudio = new Audio("./sounds/Short-C-Sharp.m4a");
 const yellowAudio = new Audio("./sounds/Short-A.m4a");
 const blueAudio = new Audio("./sounds/Short-E.m4a");
-redAudio.playbackRate = 2;
-greenAudio.playbackRate = 2;
-yellowAudio.playbackRate = 2;
-blueAudio.playbackRate = 2;
+redAudio.playbackRate = 2.5;
+greenAudio.playbackRate = 2.5;
+yellowAudio.playbackRate = 2.5;
+blueAudio.playbackRate = 2.5;
 
 //-------- Audio Functions ------------//
 function playRedAudio() {
@@ -90,7 +90,7 @@ function init() {
 	increment = 1;
 	round = 0;
 	roundNum.innerText = `Round: ${round}`;
-	playerH3.innerText = "SIMON SAYS...";
+	playerH3.innerText = "";
 	playBtn.style.display = "inline";
 	gameOverEl.classList.remove("game-over");
 	gameOverEl.classList.add("round-lost");
@@ -103,7 +103,7 @@ function gamePlay() {
 	turn = 0;
 	roundNum.innerText = `Round: ${round}`;
 	highScoreEl.innerText = `High Score: ${hardHighScore}`;
-	playerH3.innerText = "SIMON SAYS...";
+	playerH3.innerText = "SIMON SAYS";
 
 	setTimeout(() => {
 		getSimonMove();
@@ -118,28 +118,28 @@ function getPlayerMove(event) {
 			playRedAudio();
 			setTimeout(() => {
 				redDiv.classList.remove("red-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("R");
 		} else if (event.target.id === "green-button") {
 			greenDiv.classList.add("green-button-glow");
 			playGreenAudio();
 			setTimeout(() => {
 				greenDiv.classList.remove("green-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("G");
 		} else if (event.target.id === "yellow-button") {
 			yellowDiv.classList.add("yellow-button-glow");
 			playYellowAudio();
 			setTimeout(() => {
 				yellowDiv.classList.remove("yellow-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("Y");
 		} else if (event.target.id === "blue-button") {
 			blueDiv.classList.add("blue-button-glow");
 			playBlueAudio();
 			setTimeout(() => {
 				blueDiv.classList.remove("blue-button-glow");
-			}, 500);
+			}, 250);
 			playerArr.push("B");
 		}
 
@@ -150,7 +150,7 @@ function getPlayerMove(event) {
 				playerArr = [];
 				setTimeout(() => {
 					gamePlay();
-				}, 1000);
+				}, 600);
 			} else {
 				turn += 1;
 			}
@@ -178,7 +178,7 @@ function playSimonColors(i) {
 			playRedAudio();
 			setTimeout(() => {
 				redDiv.classList.remove("red-button-glow");
-			}, 800);
+			}, 600);
 		}
 	} else if (simonArr[i] === "G") {
 		if (greenDiv.classList.contains("green-button")) {
@@ -186,7 +186,7 @@ function playSimonColors(i) {
 			playGreenAudio();
 			setTimeout(() => {
 				greenDiv.classList.remove("green-button-glow");
-			}, 800);
+			}, 600);
 		}
 	} else if (simonArr[i] === "Y") {
 		if (yellowDiv.classList.contains("yellow-button")) {
@@ -194,7 +194,7 @@ function playSimonColors(i) {
 			playYellowAudio();
 			setTimeout(() => {
 				yellowDiv.classList.remove("yellow-button-glow");
-			}, 800);
+			}, 600);
 		}
 	} else if (simonArr[i] === "B") {
 		if (blueDiv.classList.contains("blue-button")) {
@@ -202,24 +202,24 @@ function playSimonColors(i) {
 			playBlueAudio();
 			setTimeout(() => {
 				blueDiv.classList.remove("blue-button-glow");
-			}, 800);
+			}, 600);
 		}
 	}
 }
 
 /*----- Simon Function that iterates through his array to play necessary colors in the playSimonColors -----*/
 function getSimonMove() {
-	playerH3.innerText = "SIMON SAYS...";
+	playerH3.innerText = "SIMON SAYS";
 	for (let i = 0; i <= increment; i++) {
 		setTimeout(() => {
 			playSimonColors(i);
 			if (i === increment) {
 				playerTurn = true;
 				setTimeout(() => {
-					playerH3.innerText = "PLAYER SAYS...";
-				}, 1000);
+					playerH3.innerText = "PLAYER SAYS";
+				}, 800);
 			}
-		}, 1000 * i);
+		}, 800 * i);
 	}
 }
 

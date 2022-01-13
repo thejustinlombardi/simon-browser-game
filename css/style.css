@@ -79,7 +79,7 @@ h2 {
 }
 
 /* STATS STYLING */
-
+.sound-btn,
 .reset-btn,
 .play-button {
 	background-image: -o-linear-gradient(red, green);
@@ -92,7 +92,7 @@ h2 {
 	);
 	background-image: linear-gradient(red, green);
 }
-
+.sound-btn:hover,
 .reset-btn:hover,
 .play-button:hover {
 	background-image: -o-linear-gradient(blue, yellow);

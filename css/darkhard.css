@@ -82,6 +82,7 @@ h2 {
 }
 
 /* STATS STYLING */
+.sound-btn,
 .reset-btn,
 .play-button {
 	background-image: -o-linear-gradient(white, black);
@@ -95,6 +96,7 @@ h2 {
 	background-image: linear-gradient(white, black);
 }
 
+.sound-btn:hover,
 .reset-btn:hover,
 .play-button:hover {
 	background-image: -o-linear-gradient(white, black);

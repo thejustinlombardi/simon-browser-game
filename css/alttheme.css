@@ -81,6 +81,7 @@ h2 {
 
 /* STATS STYLING */
 
+.sound-btn,
 .reset-btn,
 .play-button {
 	background-image: -webkit-gradient(
@@ -94,6 +95,7 @@ h2 {
 	background-image: linear-gradient(orange, lightblue);
 }
 
+.sound-btn:hover,
 .reset-btn:hover,
 .play-button:hover {
 	background-image: -webkit-gradient(

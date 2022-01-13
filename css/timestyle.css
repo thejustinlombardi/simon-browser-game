@@ -98,6 +98,7 @@ h2 {
 	justify-content: space-around;
 }
 
+.sound-btn,
 .reset-btn,
 .play-button {
 	background-image: -o-linear-gradient(pink, green);
@@ -111,6 +112,7 @@ h2 {
 	background-image: linear-gradient(pink, green);
 }
 
+.sound-btn:hover,
 .reset-btn:hover,
 .play-button:hover {
 	background-image: -o-linear-gradient(orange, purple);

@@ -83,6 +83,7 @@ const playerH3 = document.querySelector(".player-turn");
 const roundNum = document.querySelector(".round-num");
 const highScoreEl = document.querySelector(".high-score");
 const timeRemainingEl = document.querySelector(".time-remaining");
+const soundEl = document.querySelector(".sound-btn");
 /*----- Functions -----*/
 /*----- Initializing Function -----*/
 function init() {
@@ -273,6 +274,21 @@ function mysteryTheme() {
 }
 
 /*----- Event Listeners -----*/
+soundEl.addEventListener("click", function () {
+	if (soundEl.innerText === "Sound: Off") {
+		soundEl.innerText = "Sound: On";
+		redAudio.volume = 1;
+		blueAudio.volume = 1;
+		yellowAudio.volume = 1;
+		greenAudio.volume = 1;
+	} else {
+		soundEl.innerText = "Sound: Off";
+		redAudio.volume = 0;
+		blueAudio.volume = 0;
+		yellowAudio.volume = 0;
+		greenAudio.volume = 0;
+	}
+});
 toggleTheme.addEventListener("click", mysteryTheme);
 timeResetBtn.addEventListener("click", init);
 gameOverReset.addEventListener("click", init);

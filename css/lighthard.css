@@ -88,6 +88,7 @@ a {
 	color: black;
 }
 
+.sound-btn,
 .reset-btn,
 .play-button {
 	background-image: -o-linear-gradient(black, white);
@@ -101,6 +102,7 @@ a {
 	background-image: linear-gradient(black, white);
 }
 
+.sound-btn:hover,
 .reset-btn:hover,
 .play-button:hover {
 	background-image: -o-linear-gradient(black, white);

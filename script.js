@@ -170,13 +170,29 @@ function getPlayerMove(event) {
 
 /*----- Simon Function that plays his Sound and Colors -----*/
 function playSimonColors(i) {
+	let simonSpeed = 600;
+	if (round > 2) {
+		simonSpeed = 500;
+	} else if (round > 5) {
+		simonSpeed = 400;
+		redAudio.playbackRate = 3.5;
+		greenAudio.playbackRate = 3.5;
+		yellowAudio.playbackRate = 3.5;
+		blueAudio.playbackRate = 3.5;
+	} else if (round > 8) {
+		simonSpeed = 300;
+		redAudio.playbackRate = 4;
+		greenAudio.playbackRate = 4;
+		yellowAudio.playbackRate = 4;
+		blueAudio.playbackRate = 4;
+	}
 	if (simonArr[i] === "R") {
 		if (redDiv.classList.contains("red-button")) {
 			redDiv.classList.add("red-button-glow");
 			playRedAudio();
 			setTimeout(() => {
 				redDiv.classList.remove("red-button-glow");
-			}, 600);
+			}, simonSpeed);
 		}
 	} else if (simonArr[i] === "G") {
 		if (greenDiv.classList.contains("green-button")) {
@@ -184,7 +200,7 @@ function playSimonColors(i) {
 			playGreenAudio();
 			setTimeout(() => {
 				greenDiv.classList.remove("green-button-glow");
-			}, 600);
+			}, simonSpeed);
 		}
 	} else if (simonArr[i] === "Y") {
 		if (yellowDiv.classList.contains("yellow-button")) {
@@ -192,7 +208,7 @@ function playSimonColors(i) {
 			playYellowAudio();
 			setTimeout(() => {
 				yellowDiv.classList.remove("yellow-button-glow");
-			}, 600);
+			}, simonSpeed);
 		}
 	} else if (simonArr[i] === "B") {
 		if (blueDiv.classList.contains("blue-button")) {
@@ -200,7 +216,7 @@ function playSimonColors(i) {
 			playBlueAudio();
 			setTimeout(() => {
 				blueDiv.classList.remove("blue-button-glow");
-			}, 600);
+			}, simonSpeed);
 		}
 	}
 }
@@ -208,6 +224,14 @@ function playSimonColors(i) {
 /*----- Simon Function that iterates through his array to play necessary colors in the playSimonColors -----*/
 function getSimonMove() {
 	playerH3.innerText = "SIMON SAYS";
+	let simonSpeed = 800;
+	if (round > 2) {
+		simonSpeed = 600;
+	} else if (round > 5) {
+		simonSpeed = 400;
+	} else if (round > 8) {
+		simonSpeed = 300;
+	}
 	for (let i = 0; i <= round; i++) {
 		setTimeout(() => {
 			playSimonColors(i);
@@ -217,7 +241,7 @@ function getSimonMove() {
 					playerH3.innerText = "PLAYER SAYS";
 				}, 800);
 			}
-		}, 800 * i);
+		}, simonSpeed * i);
 	}
 }
 
